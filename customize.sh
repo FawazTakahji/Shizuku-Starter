@@ -61,6 +61,22 @@ set_permissions() {
   # set_perm /data/local/tmp/file.txt 0 0 644
 }
 
+USER_CONFIG_DIR="/data/adb/shizuku-starter"
+USER_CONFIG_FILE="$USER_CONFIG_DIR/config.txt"
+
+mkdir -p "$USER_CONFIG_DIR"
+unzip -qo "$ZIPFILE" "config.txt" -d "$USER_CONFIG_DIR" >&2
+
+ui_print " "
+ui_print "***********************************************"
+ui_print "⚠️ ACTION REQUIRED:"
+ui_print "Please use a ROOT file manager to edit your config at:"
+ui_print "$USER_CONFIG_FILE"
+ui_print " "
+ui_print "Reboot is not required."
+ui_print "***********************************************"
+ui_print " "
+
 ##########################################################################################
 # MMT Extended Logic - Don't modify anything after this
 ##########################################################################################

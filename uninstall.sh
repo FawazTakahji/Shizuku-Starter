@@ -1,3 +1,8 @@
+rm -f /data/adb/shizuku-starter/config.txt
+if [ -d /data/adb/shizuku-starter ]; then
+    rmdir /data/adb/shizuku-starter
+fi
+
 # Don't modify anything after this
 if [ -f $INFO ]; then
   while read LINE; do
