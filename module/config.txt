@@ -1,9 +1,11 @@
-# Privileges to use: adb or root
+# Available options:
+# adb: Start Shizuku with adb privileges
+# root: Start Shizuku with root privileges
 mode=adb
 
-# WARNING: Specifying the path to libshizuku.so is safer than using the search method
-# Available options: AUTO_SEARCH to search /data/app, or provide an absolute path
-# Standard 64-bit path example: /data/app/moe.shizuku.privileged.api-.../lib/arm64/libshizuku.so
+# Available options:
+# AUTO_SEARCH: Automatically search for libshizuku.so in /data/app/ and use the first result
+# Manually specify the path to libshizuku.so, which is the recommended option for safety reasons
 libshizuku=
 
 # Config version, do not change
