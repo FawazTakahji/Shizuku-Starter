@@ -1,6 +1,9 @@
-rm -f /data/adb/shizuku-starter/config.txt
-if [ -d /data/adb/shizuku-starter ]; then
-    rmdir /data/adb/shizuku-starter
+USER_CONFIG_DIR="/data/adb/shizuku-starter"
+
+rm -f "$USER_CONFIG_DIR/config.txt"
+rm -f "$USER_CONFIG_DIR/service.log"
+if [ -d "$USER_CONFIG_DIR" ]; then
+    rmdir "$USER_CONFIG_DIR"
 fi
 
 # Don't modify anything after this
