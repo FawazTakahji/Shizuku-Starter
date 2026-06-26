@@ -1,7 +1,7 @@
-id=MMT-Ex
-name=Magisk Module Template Extended
-version=v3.7
-versionCode=19
-author=Zackptg5
-description=Magisk Module Template Extended
-updateJson=https://raw.githubusercontent.com/Zackptg5/MMT-Extended/master/update.json
+id=Shizuku-Starter
+name=Shizuku Starter
+version={VERSION}
+versionCode={VERSION_CODE}
+author=FawazTakahji
+description=Start Shizuku with root or adb privileges on boot.
+updateJson=https://raw.githubusercontent.com/FawazTakahji/Shizuku-Starter/master/update.json

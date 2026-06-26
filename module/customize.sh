@@ -72,8 +72,6 @@ ui_print "***********************************************"
 ui_print "⚠️ ACTION REQUIRED:"
 ui_print "Please use a ROOT file manager to edit your config at:"
 ui_print "$USER_CONFIG_FILE"
-ui_print " "
-ui_print "Reboot is not required."
 ui_print "***********************************************"
 ui_print " "
 
