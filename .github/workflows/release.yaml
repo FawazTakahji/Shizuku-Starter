@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Edit Properties
+        run: |
+          VERSION=$(jq -r '.version' update.json)
+          VERSION_CODE=$(jq -r '.versionCode' update.json)
+
+          sed -i "s/{VERSION}/$VERSION/g" module/module.prop
+          sed -i "s/{VERSION_CODE}/$VERSION_CODE/g" module/module.prop
+
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      
+      - name: Compress Module
+        run: |
+          (cd module && zip -r ../Shizuku-Starter-${{ env.VERSION }}.zip .)
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: Shizuku-Starter-${{ env.VERSION }}
+          path: Shizuku-Starter-${{ env.VERSION }}.zip
+
+      - name: Attestation
+        uses: actions/attest@v4
+        with:
+          subject-path: "Shizuku-Starter-${{ env.VERSION }}.zip"
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" "Shizuku-Starter-${{ env.VERSION }}.zip" \
+            --title "${{ env.VERSION }}" \
+            --generate-notes
