@@ -70,7 +70,7 @@ unzip -qo "$ZIPFILE" "config.txt" -d "$USER_CONFIG_DIR" >&2
 ui_print " "
 ui_print "***********************************************"
 ui_print "⚠️ ACTION REQUIRED:"
-ui_print "Please use a ROOT file manager to edit your config at:"
+ui_print "Please use a root file manager to edit the config at:"
 ui_print "$USER_CONFIG_FILE"
 ui_print "***********************************************"
 ui_print " "
